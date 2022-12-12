@@ -10,7 +10,7 @@
 .banner{
         width: 100%;
         height: 100%;
-        background-image: linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),url('watching_gpsr.jpg');
+        background-image: linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),url('./athome/watching_gpsr.jpg');
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -30,13 +30,18 @@
 }
 .navbar ul li{
         list-style: none;
-        margin: 0 20px;
+        margin: 0 10px;
         position: relative;
         color: black;
         overflow: auto;
 }
 
 .year_section{
+        width: 100%;
+        text-align: center;
+        color: #000;
+}
+.extra_links_section{
         width: 100%;
         text-align: center;
         color: #000;
@@ -118,9 +123,7 @@
         justify-content: space-between;
         background-color: transparent;
 }
-.vl {
-        border-left: 6px solid green;
-      }
+
 .video_gallery{
         width: 80%;
         margin: 80px auto;
@@ -159,10 +162,10 @@ a.button{
         -moz-appearance: button;
         appearance: button;
         
-        width: 10%;
         min-width: 80px;
         padding: 0 0;
         text-align: center;
+        justify-content: center;
         margin: 20px 5px;
         border-radius: 25px;
         font-weight: bold;
@@ -184,6 +187,13 @@ a.button1 {
         text-decoration-line: none;
 }
 a.button2 {
+        width: 10%;
+        min-width: 150px;
+        color: black;
+        text-decoration-line: none;
+}
+a.button3{
+        width: 40%;
         min-width: 150px;
         color: black;
         text-decoration-line: none;
@@ -225,10 +235,11 @@ header{
         list-style: none;
         display: inline-flex;
         white-space: nowrap;
-        margin: 0 40px;
+        margin: 0 20px;
         position: relative;
         align-content: center;
         color: black;
+        min-width: 225px;
 }
 
 .nav__links li a{
