@@ -1,13 +1,16 @@
-# Website Update Procedure
+# React + Vite
 
-Since the @Home pages are hosted by the SPL team's website, you have to carefully apply changes in this repo to the server.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-To update [the main @Home page](https://www.cs.utexas.edu/~AustinVilla/athome/), frist sync `athome.html` from your local repo to the UTCS server, then replace 
+Currently, two official plugins are available:
 
-`mv athome.html /v/filer5b/webother/users/other/AustinVilla/athome/index.html`.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Add new pages and other assets to `/v/filer5b/webother/users/other/AustinVilla/athome/`
+## React Compiler
 
-You may have to manually change permissions for them to appear on the website. For example,
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-`chmod 644 UT_Austin_Villa_Home_2024_Team_Description_Paper.pdf`
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

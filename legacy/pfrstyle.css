@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+font-family: "Times New Roman", Times, serif;
+width: 800px;
+margin: 0 auto;
+background-image:url(./Middle_bib2html.png);
+background-repeat: repeat-y;
+background-position:center;
+color: #333;
+}
+
+a:link, a:visited, a:active {
+color: #00023d;
+}
+
+a:hover {
+color: #00023d;
+}
