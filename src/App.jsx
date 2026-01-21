@@ -16,7 +16,8 @@ const Navbar = () => {
       background: scrolled ? 'rgba(15, 23, 42, 0.9)' : 'transparent',
       borderBottom: scrolled ? '1px solid var(--glass-border)' : 'none',
     }}>
-      <div className="logo">Austin Villa <span style={{ color: 'var(--text-secondary)', fontSize: '0.8em' }}>@Home</span></div>
+      <div className="logo">UT Austin Villa <span style={{ color: 'var(--text-secondary)', fontSize: '0.8em' }}>@Home</span></div>
+
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -46,20 +47,24 @@ const Hero = () => {
         left: 0,
         width: '100%',
         height: '100%',
-        backgroundImage: 'url(/team_hero.jpg)',
+        backgroundImage: `url(${import.meta.env.BASE_URL}team_hero.jpg)`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         zIndex: -1,
         filter: 'brightness(0.3)'
+
       }} />
       <div className="container" style={{ textAlign: 'center', zIndex: 1 }}>
-        <h1 style={{ fontSize: '4em', marginBottom: '0.5rem' }}>Austin Villa @ Home</h1>
+        <h1 style={{ fontSize: '4em', marginBottom: '0.5rem' }}>UT Austin Villa @ Home</h1>
+
         <p style={{ fontSize: '1.5em', color: 'var(--text-primary)', maxWidth: '800px', margin: '0 auto 2rem', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
-          Developing intelligent service robots for the real world.
+          UT Austin team for the RoboCup@Home competition
         </p>
+
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
           <a href="#about"><button>Learn More</button></a>
-          <a href="http://www.cs.utexas.edu/~AustinVilla/athome/UT_Austin_Villa_Home_2025_Team_Description_Paper.pdf" target="_blank"><button style={{ background: 'var(--accent-primary)', color: 'var(--bg-primary)' }}>2025 Team Description Paper</button></a>
+          <a href={`${import.meta.env.BASE_URL}PDFs/UT_Austin_Villa_Home_2026_Team_Description_Paper.pdf.pdf`} target="_blank"><button style={{ background: 'var(--accent-primary)', color: 'var(--bg-primary)' }}>2026 Team Description Paper</button></a>
+          <a href="https://www.youtube.com/watch?v=E4XUL4VtmkA" target="_blank"><button style={{ background: 'var(--accent-primary)', color: 'var(--bg-primary)' }}>2026 Team Video</button></a>
         </div>
       </div>
     </div>
@@ -86,6 +91,81 @@ const PublicationCard = ({ title, authors, venue, link }) => (
   </div>
 );
 
+const ImageCarousel = ({ images }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  return (
+    <div className="glass-card" style={{ position: 'relative', overflow: 'hidden', padding: 0 }}>
+      <div style={{ position: 'relative', height: '500px', width: '100%', background: 'rgba(0,0,0,0.2)' }}>
+        <img
+          src={`${import.meta.env.BASE_URL}team_pics/${images[currentIndex]}`}
+
+          alt="Team Media"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain'
+          }}
+        />
+      </div>
+
+      <button
+        onClick={prevSlide}
+        aria-label="Previous image"
+        style={{
+          position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)',
+          background: 'rgba(0, 0, 0, 0.5)', color: 'white', border: 'none', borderRadius: '50%',
+          width: '40px', height: '40px', cursor: 'pointer', fontSize: '1.2rem',
+          display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 0.3s'
+        }}
+        onMouseOver={(e) => e.target.style.background = 'rgba(0, 0, 0, 0.8)'}
+        onMouseOut={(e) => e.target.style.background = 'rgba(0, 0, 0, 0.5)'}
+      >
+        ❮
+      </button>
+      <button
+        onClick={nextSlide}
+        aria-label="Next image"
+        style={{
+          position: 'absolute', right: '1rem', top: '50%', transform: 'translateY(-50%)',
+          background: 'rgba(0, 0, 0, 0.5)', color: 'white', border: 'none', borderRadius: '50%',
+          width: '40px', height: '40px', cursor: 'pointer', fontSize: '1.2rem',
+          display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 0.3s'
+        }}
+        onMouseOver={(e) => e.target.style.background = 'rgba(0, 0, 0, 0.8)'}
+        onMouseOut={(e) => e.target.style.background = 'rgba(0, 0, 0, 0.5)'}
+      >
+        ❯
+      </button>
+
+      <div style={{
+        position: 'absolute', bottom: '1rem', left: '50%', transform: 'translateX(-50%)',
+        display: 'flex', gap: '0.5rem', flexWrap: 'wrap', justifyContent: 'center', padding: '0 1rem'
+      }}>
+        {images.map((_, idx) => (
+          <div
+            key={idx}
+            onClick={() => setCurrentIndex(idx)}
+            style={{
+              width: '10px', height: '10px', borderRadius: '50%',
+              background: idx === currentIndex ? 'white' : 'rgba(255, 255, 255, 0.5)',
+              cursor: 'pointer', transition: 'background 0.3s'
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const Section = ({ id, title, children }) => (
   <section id={id} className="section container">
     <h2>{title}</h2>
@@ -102,41 +182,42 @@ function App() {
       <Section id="about" title="About Us">
         <div className="glass-card">
           <p style={{ fontSize: '1.1em', lineHeight: '1.8' }}>
-            We are the <strong>Austin Villa @ Home</strong> team from the University of Texas at Austin.
-            Our research focuses on <strong>fully integrated architectures for service robots</strong> that operate in the real world.
-            Built on top of the Robot Operating System (ROS), our software powers robots that navigate, reason, and interact with humans in dynamic environments.
+            The UT Austin Villa@Home team competes in the RoboCup@Home Standard Platform League. For seven years, we competed in the Domestic Standard Platform League (DSPL) with the Toyota Human Support Robot (HSR). For 2026, we plan to compete with a custom built cobot. The league aims to develop domestic service robot technology and evaluates performance in a set of benchmark tests in a realistic home environment. The team is a collaboration between PIs and students in Texas Robotics, a united partnership between the Departments of Computer Science, Mechanical Engineering, Aerospace Engineering, and Electrical and Computer Engineering at the University of Texas at Austin. Over the past three years, we have constructed a framework intended to act as a comprehensive domestic service robot system, spanning multiple robot platforms. As instantiated in RoboCup@Home, our goal is to develop a single system which competes in every round, rather than a suite of software tailored to each round. In the realization of this goal, we have ported our RoboCup@Home code back to the Building-Wide Intelligence (BWI) infrastructure. As instantiated in BWI, the goal of this project is to deploy a service robot in our computer science department which responds to the day-to-day needs of the building's occupants, and is considered a part of the fabric of our department.
           </p>
+
           <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', alignItems: 'center' }}>
-            <img src="/hsr_logo.jpg" alt="HSR Robot" style={{ height: '100px', borderRadius: '8px', border: '1px solid var(--glass-border)' }} />
-            <div>
+            <img src={`${import.meta.env.BASE_URL}cobot.png`} alt="Collaborative Robot" style={{ height: '100px', borderRadius: '8px', border: '1px solid var(--glass-border)' }} />
+
+            {/* <div>
               <h3 style={{ margin: '0 0 0.5rem 0' }}>RoboCup@Home</h3>
               <p style={{ margin: 0, color: 'var(--text-secondary)' }}>
-                We compete in the RoboCup@Home Domestic Standard Platform League using the Toyota Human Support Robot (HSR).
+                We compete in the RoboCup@Home Standard Platform League using the Toyota Human Support Robot (HSR).
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
       </Section>
 
       <Section id="media" title="Team Media">
-        <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
-          <div className="glass-card" style={{ padding: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <iframe
-              width="100%"
-              height="315"
-              src="https://www.youtube.com/embed/E4XUL4VtmkA"
-              title="2025 Team Video"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              style={{ borderRadius: '8px' }}
-            ></iframe>
-          </div>
-          <div className="glass-card" style={{ padding: '1rem' }}>
-            <img src="/team_last_day.jpg" alt="Team Last Day" style={{ width: '100%', height: '315px', objectFit: 'cover', borderRadius: '8px' }} />
-            <p style={{ textAlign: 'center', marginTop: '1rem', color: 'var(--text-secondary)' }}>Austin Villa @ Home Team</p>
-          </div>
-        </div>
+        <ImageCarousel images={[
+          "2019_before_test.jpg",
+          "2022_team.jpg",
+          "2023_team.jpg",
+          "Desk_Identification.png",
+          "HSR_Getting_Drinks.png",
+          "Human_Robot_Interaction.png",
+          "Segway_At_Robocup07.jpg",
+          "awayteam2017.png",
+          "finalcapture1.jpg",
+          "finalcapture2.jpg",
+          "finalcapture3.jpg",
+          "hsr-small.jpg",
+          "podium.jpg",
+          "setup_montreal.jpg",
+          "team_hero.jpg",
+          "team_last_day.jpg",
+          "trophy.png"
+        ]} />
       </Section>
 
       <Section id="publications" title="Relevant Publications">
