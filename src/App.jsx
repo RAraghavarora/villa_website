@@ -58,7 +58,7 @@ const Hero = () => {
         <h1 style={{ fontSize: '4em', marginBottom: '0.5rem' }}>UT Austin Villa @ Home</h1>
 
         <p style={{ fontSize: '1.5em', color: 'var(--text-primary)', maxWidth: '800px', margin: '0 auto 2rem', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
-          UT Austin team for the RoboCup@Home competition
+          <a href="https://athome.robocup.org/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>RoboCup@Home</a> team from the University of Texas at Austin
         </p>
 
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
@@ -200,10 +200,10 @@ function App() {
 
       <Section id="media" title="Team Media">
         <ImageCarousel images={[
+          "2023_team.jpg",
+          "2025_salvador.jpg",
           "2019_before_test.jpg",
           "2022_team.jpg",
-          "2023_team.jpg",
-          "Desk_Identification.png",
           "HSR_Getting_Drinks.png",
           "Human_Robot_Interaction.png",
           "Segway_At_Robocup07.jpg",
@@ -211,10 +211,10 @@ function App() {
           "finalcapture1.jpg",
           "finalcapture2.jpg",
           "finalcapture3.jpg",
+          "cobot.png",
           "hsr-small.jpg",
           "podium.jpg",
           "setup_montreal.jpg",
-          "team_hero.jpg",
           "team_last_day.jpg",
           "trophy.png"
         ]} />
