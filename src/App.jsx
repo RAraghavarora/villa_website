@@ -223,6 +223,18 @@ function App() {
       <Section id="publications" title="Relevant Publications">
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           <PublicationCard
+            title="L3M+P: Lifelong Planning with Large Language Models"
+            authors="Kushagra Agarwal, Yuqian Jiang, Jiaming Hu, Bo Liu, and Peter Stone"
+            venue="2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)"
+            link="https://doi.org/10.1109/IROS60139.2025.11247529"
+          />
+          <PublicationCard
+            title="LLM+P: Empowering Large Language Models with Optimal Planning Proficiency"
+            authors="Bo Liu, Yuqian Jiang, Xiaohan Zhang, Qiang Liu, Shiqi Zhang, Joydeep Biswas, and Peter Stone"
+            venue="arXiv preprint arXiv:2304.11477, 2023"
+            link="https://arxiv.org/abs/2304.11477"
+          />
+          <PublicationCard
             title="Solving Service Robot Tasks: UT Austin Villa@Home 2019 Team Report"
             authors="Rishi Shah, Yuqian Jiang, Haresh Karnan, Gilberto Briscoe-Martinez, Dominick Mulder, Ryan Gupta, Rachel Schlossman, Marika Murphy, Justin Hart, Luis Sentis, and Peter Stone"
             venue="AAAI Fall Symposium on Artificial Intelligence and Human-Robot Interaction (AI-HRI 2019)"
