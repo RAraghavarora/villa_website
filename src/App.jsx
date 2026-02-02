@@ -223,10 +223,22 @@ function App() {
       <Section id="publications" title="Relevant Publications">
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           <PublicationCard
+            title="Large Language Model Guided State Estimation for Partially Observable Task and Motion Planning"
+            authors="Yoonwoo Kim, Raghav Arora, Roberto Martín-Martín, Peter Stone, Ben Abbatematteo, and Yoonchang Sung"
+            venue="IEEE International Conference on Robotics & Automation 2026"
+            link="https://coco-tamp.github.io/"
+          />
+          <PublicationCard
             title="L3M+P: Lifelong Planning with Large Language Models"
             authors="Kushagra Agarwal, Yuqian Jiang, Jiaming Hu, Bo Liu, and Peter Stone"
             venue="2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)"
             link="https://doi.org/10.1109/IROS60139.2025.11247529"
+          />
+          <PublicationCard
+            title="Deploying and Evaluating LLMs to Program Service Mobile Robots"
+            authors="Zichao Hu, Francesca Lucchetti, Claire Schlesinger, Yash Saxena, Anders Freeman, Sadanand Modak, Arjun Guha, and Joydeep Biswas"
+            venue="IEEE Robotics and Automation Letters (RA-L), 2024"
+            link="https://doi.org/10.1109/LRA.2024.3360020"
           />
           <PublicationCard
             title="LLM+P: Empowering Large Language Models with Optimal Planning Proficiency"
@@ -311,6 +323,7 @@ function App() {
             { name: "Members", url: "https://www.cs.utexas.edu/~AustinVilla/?p=members" },
             { name: "Competitions", url: "https://www.cs.utexas.edu/~AustinVilla/?p=competitions" },
             { name: "Downloads", url: "https://www.cs.utexas.edu/~AustinVilla/?p=downloads" },
+            { name: "Previous Years' Material", url: "https://www.cs.utexas.edu/~AustinVilla/?p=athome" },
           ].map(link => (
             <a key={link.name} href={link.url} target="_blank" className="glass-card" style={{ display: 'block', textAlign: 'center', textDecoration: 'none' }}>
               <span style={{ color: 'var(--text-primary)', fontWeight: '600' }}>{link.name}</span>
