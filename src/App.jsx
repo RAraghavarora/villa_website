@@ -202,6 +202,8 @@ function App() {
         <ImageCarousel images={[
           "2023_team.jpg",
           "2025_salvador.jpg",
+          "salvador_1.jpg",
+          "salvador_2.jpeg",
           "2019_before_test.jpg",
           "2022_team.jpg",
           "HSR_Getting_Drinks.png",
