@@ -63,8 +63,8 @@ const Hero = () => {
 
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
           <a href="#about"><button>Learn More</button></a>
-          <a href={`${import.meta.env.BASE_URL}PDFs/UT_Austin_Villa_Home_2026_Team_Description_Paper.pdf.pdf`} target="_blank"><button style={{ background: 'var(--accent-primary)', color: 'var(--bg-primary)' }}>2026 Team Description Paper</button></a>
-          <a href="https://www.youtube.com/watch?v=E4XUL4VtmkA" target="_blank"><button style={{ background: 'var(--accent-primary)', color: 'var(--bg-primary)' }}>2026 Team Video</button></a>
+          <a href={`${import.meta.env.BASE_URL}PDFs/UT_Austin_Villa_Home_2026_Team_Description_Paper.pdf`} target="_blank"><button style={{ background: 'var(--accent-primary)', color: 'var(--bg-primary)' }}>2026 Team Description Paper</button></a>
+          <a href="https://www.youtube.com/watch?v=TBZz2IY7lCI" target="_blank"><button style={{ background: 'var(--accent-primary)', color: 'var(--bg-primary)' }}>2026 Team Video</button></a>
         </div>
       </div>
     </div>
